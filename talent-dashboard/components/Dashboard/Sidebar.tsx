@@ -14,7 +14,7 @@ const Sidebar: React.FC = () => {
     <aside className="bg-blue-600 text-white w-64 min-h-screen p-4">
       <Image src="/images/umurava.png" alt="Umurava" width={55} height={35} />
       <nav className="mt-4">
-        <ul className="space-y-4">
+        <ul className="space-y-2">
           <li>
             <Link
               href="/dashboard"
@@ -43,7 +43,7 @@ const Sidebar: React.FC = () => {
             </Link>
           </li>
         </ul>
-        <ul className="space-y-4 mt-64">
+        <ul className="space-y-2 mt-44">
           <li>
             <Link
               href="/settings"
@@ -71,7 +71,7 @@ const Sidebar: React.FC = () => {
               <span className="text-sm">Refer Family and Friends</span>
             </Link>
           </li>
-          <li className="mt-atuo">
+          <li className="mt-auto">
             <ProfileSection />
           </li>
         </ul>
