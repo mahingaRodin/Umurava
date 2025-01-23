@@ -5,10 +5,10 @@ import {
   FaFile,
   FaUserPlus,
   FaCog,
-  FaSignOutAlt,
-  FaQuestionCircle,
-  FaUserFriends,
+  FaHeadphones,
+  FaGift,
 } from "react-icons/fa";
+import ProfileSection from "./ProfileSection";
 const Sidebar: React.FC = () => {
   return (
     <aside className="bg-blue-600 text-white w-64 min-h-screen p-4">
@@ -58,7 +58,7 @@ const Sidebar: React.FC = () => {
               href="/help"
               className="flex items-center p-2 hover:bg-white rounded hover:text-blue-500"
             >
-              <FaQuestionCircle className="mr-2" />
+              <FaHeadphones className="mr-2" />
               <span className="text-sm">Help Center</span>
             </Link>
           </li>
@@ -67,9 +67,12 @@ const Sidebar: React.FC = () => {
               href="/settings"
               className="flex items-center p-2 hover:bg-white rounded hover:text-blue-500"
             >
-              <FaUserFriends className="mr-2" />
+              <FaGift className="mr-2" />
               <span className="text-sm">Refer Family and Friends</span>
             </Link>
+          </li>
+          <li className="mt-atuo">
+            <ProfileSection />
           </li>
         </ul>
       </nav>
