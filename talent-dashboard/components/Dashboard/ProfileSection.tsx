@@ -10,11 +10,11 @@ const ProfileSection = () => {
     >
       <div className="relative">
         <Image
-          src="/images/image.jpg" // Replace with your image path
+          src="/images/image.jpg" 
           alt="Profile"
-          width={48}
-          height={48}
-          className="rounded-full"
+          width={50}
+          height={50}
+          className="rounded-full border-2 border-white"
         />
         <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
       </div>
