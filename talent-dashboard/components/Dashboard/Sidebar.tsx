@@ -1,6 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaHome, FaFile, FaUserPlus, FaCog, FaSignOutAlt } from "react-icons/fa";
+import {
+  FaHome,
+  FaFile,
+  FaUserPlus,
+  FaCog,
+  FaSignOutAlt,
+  FaQuestionCircle,
+  FaUserFriends,
+} from "react-icons/fa";
 const Sidebar: React.FC = () => {
   return (
     <aside className="bg-blue-600 text-white w-64 min-h-screen p-4">
@@ -34,6 +42,8 @@ const Sidebar: React.FC = () => {
               <span className="text-sm">Community</span>
             </Link>
           </li>
+        </ul>
+        <ul className="space-y-4 mt-64">
           <li>
             <Link
               href="/settings"
@@ -41,6 +51,24 @@ const Sidebar: React.FC = () => {
             >
               <FaCog className="mr-2" />
               <span className="text-sm">Settings</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/help"
+              className="flex items-center p-2 hover:bg-white rounded hover:text-blue-500"
+            >
+              <FaQuestionCircle className="mr-2" />
+              <span className="text-sm">Help Center</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/settings"
+              className="flex items-center p-2 hover:bg-white rounded hover:text-blue-500"
+            >
+              <FaUserFriends className="mr-2" />
+              <span className="text-sm">Refer Family and Friends</span>
             </Link>
           </li>
         </ul>
