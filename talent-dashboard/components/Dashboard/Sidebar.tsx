@@ -19,7 +19,7 @@ const Sidebar: React.FC = () => {
       <nav className="mt-4">
         <ul className="space-y-2">
           <li>
-            <Link href="/" legacyBehavior>
+            <Link href="/dashboard" legacyBehavior>
               <a className="flex items-center p-2 hover:bg-white rounded hover:text-blue-500">
                 <FaHome className="mr-2" />
                 <span className="text-sm">Dashboard</span>
