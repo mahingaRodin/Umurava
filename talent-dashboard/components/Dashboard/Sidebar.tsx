@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -9,24 +10,25 @@ import {
   FaGift,
 } from "react-icons/fa";
 import ProfileSection from "./ProfileSection";
+import { URLS } from "@/constants/urls";
+
 const Sidebar: React.FC = () => {
   return (
-    <aside className="bg-blue-600 text-white w-64 min-h-screen p-4">
+    <aside className="bg-blue-600 text-white w-62 min-h-screen p-4">
       <Image src="/images/umurava.png" alt="Umurava" width={55} height={35} />
       <nav className="mt-4">
         <ul className="space-y-2">
           <li>
-            <Link
-              href="/dashboard"
-              className="flex items-center p-2 hover:bg-white rounded hover:text-blue-500"
-            >
-              <FaHome className="mr-2" />
-              <span className="text-sm">Dashboard</span>
+            <Link href="/" legacyBehavior>
+              <a className="flex items-center p-2 hover:bg-white rounded hover:text-blue-500">
+                <FaHome className="mr-2" />
+                <span className="text-sm">Dashboard</span>
+              </a>
             </Link>
           </li>
           <li>
             <Link
-              href="/challenges"
+              href={URLS.CHALLENGES}
               className="flex items-center p-2 hover:bg-white rounded hover:text-blue-500"
             >
               <FaFile className="mr-2" />
