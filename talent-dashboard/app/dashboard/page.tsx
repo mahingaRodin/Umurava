@@ -151,7 +151,7 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({ challenge }) => (
         <Image
           src={challenge.companyLogo}
           alt="Company Logo"
-          width={200}
+          width={120}
           height={60}
           className="object-contain"
         />
