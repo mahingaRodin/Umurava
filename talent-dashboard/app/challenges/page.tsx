@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "../../components/Dashboard/Sidebar";
-import { FaSearch } from "react-icons/fa";
+import { FaBell, FaSearch } from "react-icons/fa";
+import Image from "next/image";
 
 const Challenges = () => {
   return (
@@ -19,6 +20,27 @@ const Challenges = () => {
                 className="pl-10 pr-4 py-2 rounded-lg border w-[800px]"
               />
               <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            </div>
+            <div className="flex items-center gap-4">
+              <FaBell className="text-gray-600" />
+              <Image
+                src="/images/image.jpg"
+                alt="Profile"
+                width={40}
+                height={40}
+                className="rounded-full"
+              />
+            </div>
+          </div>
+
+          {/* welcome section */}
+          <div className="flex justify-between items-center mb-8">
+            <div>
+              <h1 className="text-2xl font-bold mb-2">Challenges</h1>
+              <p className="text-gray-600">
+                Join a challenge or a hackathon to gain valuable work
+                experience,
+              </p>
             </div>
           </div>
         </div>
