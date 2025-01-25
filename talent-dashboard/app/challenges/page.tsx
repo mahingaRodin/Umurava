@@ -4,6 +4,16 @@ import Sidebar from "../../components/Dashboard/Sidebar";
 import { FaBell, FaFileAlt, FaSearch } from "react-icons/fa";
 import Image from "next/image";
 
+interface Challenge {
+  title: string;
+  description: string;
+  status: "Open" | "Closed";
+  skillsNeeded: string[];
+  timeline: string;
+  seniorityLevel: string;
+  companyLogo: string;
+}
+
 const Challenges = () => {
   const [activeTab, setActiveTab] = useState("All Challenge");
 
@@ -14,6 +24,53 @@ const Challenges = () => {
     { id: "Ongoing Challenge", label: "Ongoing Challenge", count: 0 },
   ];
 
+  const challenges: Challenge[] = [
+    {
+      title: "Design a Dashboard for SokoFund, Fintech Product",
+      description: "Create a functional dashboard for a fintech product.",
+      status: "Open",
+      skillsNeeded: ["UI/UX Design", "User Research", "User Research"],
+      timeline: "15 Days",
+      seniorityLevel: "(Junior, Intermediate, Senior)",
+      companyLogo: "/images/umurava.png",
+    },
+    {
+      title: "Design a Dashboard for SokoFund, Fintech Product",
+      description: "Build an app to track user health metrics.",
+      status: "Open",
+      skillsNeeded: ["UI/UX Design", "User Research", "User Research"],
+      timeline: "15 Days",
+      seniorityLevel: "(Junior, Intermediate, Senior)",
+      companyLogo: "/images/umurava.png",
+    },
+    {
+      title: "Design a Dashboard for SokoFund, Fintech Product",
+      description: "Build an app to track user health metrics.",
+      status: "Open",
+      skillsNeeded: ["UI/UX Design", "User Research", "User Research"],
+      timeline: "15 Days",
+      seniorityLevel: "(Junior, Intermediate, Senior)",
+      companyLogo: "/images/umurava.png",
+    },
+    {
+      title: "Design a Dashboard for SokoFund, Fintech Product",
+      description: "Build an app to track user health metrics.",
+      status: "Open",
+      skillsNeeded: ["UI/UX Design", "User Research", "User Research"],
+      timeline: "15 Days",
+      seniorityLevel: "(Junior, Intermediate, Senior)",
+      companyLogo: "/images/umurava.png",
+    },
+    {
+      title: "Design a Dashboard for SokoFund, Fintech Product",
+      description: "Build an app to track user health metrics.",
+      status: "Open",
+      skillsNeeded: ["UI/UX Design", "User Research", "User Research"],
+      timeline: "15 Days",
+      seniorityLevel: "(Junior, Intermediate, Senior)",
+      companyLogo: "/images/umurava.png",
+    },
+  ];
   return (
     <div className="flex h-screen">
       <div className="fixed h-screen w-[260px]">
