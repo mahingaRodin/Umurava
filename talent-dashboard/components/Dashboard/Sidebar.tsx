@@ -10,7 +10,6 @@ import {
   FaGift,
 } from "react-icons/fa";
 import ProfileSection from "./ProfileSection";
-import { URLS } from "@/constants/urls";
 
 const Sidebar: React.FC = () => {
   return (
