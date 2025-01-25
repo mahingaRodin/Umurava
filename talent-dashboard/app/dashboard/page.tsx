@@ -64,7 +64,7 @@ const Dashboard: React.FC = () => {
               <input
                 type="search"
                 placeholder="Search here..."
-                className="pl-10 pr-4 py-2 rounded-lg border w-[300px]"
+                className="pl-10 pr-4 py-2 rounded-lg border w-[800px]"
               />
               <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
             </div>
