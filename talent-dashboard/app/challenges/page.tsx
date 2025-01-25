@@ -62,11 +62,15 @@ const Challenges = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center space-x-2 p-3 rounded-lg border transition group ${
                   activeTab === tab.id
-                    ? "bg-blue-500 text-white border-blue-500"
+                    ? "bg-blue-300 text-blue-950"
                     : "bg-light-blue-50 text-gray-600 border-blue-200 hover:bg-blue-200"
                 }`}
               >
-                <FaFileAlt />
+                <FaFileAlt
+                  className={`${
+                    activeTab === tab.id ? "text-blue-600" : "text-gray-600"
+                  }`}
+                />
                 <span className="flex items-center">
                   <span>{tab.label}</span>
                   <span
