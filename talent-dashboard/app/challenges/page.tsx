@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Sidebar from "../../components/Dashboard/Sidebar";
 import { FaBell, FaFileAlt, FaSearch } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Challenge {
   title: string;
@@ -75,25 +76,28 @@ const challenges: Challenge[] = [
 ];
 
 const ChallengeCard: React.FC<ChallengeCardProps> = ({ challenge }) => (
-  <div className="bg-white rounded-lg shadow-sm overflow-hidden w-76">
+  <div className="bg-white rounded-lg shadow-lg overflow-hidden w-80 border border-gray-200">
+    {/* Header Section */}
     <div className="relative">
-      <div className="bg-blue-500 h-40 flex items-center justify-center">
+      <div className="bg-blue-500 h-36 flex items-center justify-center">
         <Image
           src={challenge.companyLogo}
           alt="Company Logo"
-          width={100}
-          height={60}
+          width={120}
+          height={70}
           className="object-contain"
         />
       </div>
-      <span className="absolute top-4 right-4 bg-green-500 text-white text-sm px-3 py-1 rounded-full">
+      <span className="absolute top-3 right-3 bg-green-500 text-white text-sm px-4 py-1 rounded-full shadow">
         {challenge.status}
       </span>
     </div>
-    {/* content section */}
-    <div className="p-6 space-y-4">
-      <h3 className="font-semibold mb-4 text-sm">{challenge.title}</h3>
-      {/* skills section */}
+    {/* Content Section */}
+    <div className="p-5 space-y-3">
+      <h3 className="font-semibold text-base text-gray-800">
+        {challenge.title}
+      </h3>
+      {/* Skills Section */}
       <div>
         <p className="text-sm text-gray-600 mb-2">Skills Needed:</p>
         <div className="flex flex-row gap-2 flex-wrap">
@@ -107,20 +111,21 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({ challenge }) => (
           ))}
         </div>
       </div>
-
-      <div className="mb-4">
+      {/* Additional Details */}
+      <div>
         <p className="text-sm text-gray-600">
           Seniority Level:{" "}
           <span className="text-gray-400">{challenge.seniorityLevel}</span>
         </p>
       </div>
-
-      <div className="mb-4">
+      <div>
         <p className="text-sm text-gray-600">
           Timeline: <span>{challenge.timeline}</span>
         </p>
       </div>
+      {/* Divider */}
       <hr className="w-full border-gray-300 my-4" />
+      {/* Action Button */}
       <button className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
         View Challenge
       </button>
@@ -128,15 +133,24 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({ challenge }) => (
   </div>
 );
 
-
 const Challenges = () => {
   const [activeTab, setActiveTab] = useState("All Challenge");
 
   const tabs = [
-    { id: "All Challenge", label: "All Challenge", count: 0 },
-    { id: "Completed Challenge", label: "Completed Challenge", count: 0 },
-    { id: "Open Challenge", label: "Open Challenge", count: 0 },
-    { id: "Ongoing Challenge", label: "Ongoing Challenge", count: 0 },
+    { id: "All Challenges", label: "All Challenges", count: 0, href: "#" },
+    {
+      id: "Completed Challenges",
+      label: "Completed Challenges",
+      count: 0,
+      href: "#",
+    },
+    { id: "Open Challenges", label: "Open Challenges", count: 0, href: "#" },
+    {
+      id: "Ongoing Challenges",
+      label: "Ongoing Challenges",
+      count: 0,
+      href: "#",
+    },
   ];
 
   return (
@@ -167,7 +181,6 @@ const Challenges = () => {
               />
             </div>
           </div>
-
           {/* welcome section */}
           <div className="flex justify-between items-center mb-8">
             <div>
@@ -178,40 +191,40 @@ const Challenges = () => {
               </p>
             </div>
           </div>
-
           {/* challenges */}
           <div className="flex space-x-4">
             {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-2 p-3 rounded-lg border transition group ${
-                  activeTab === tab.id
-                    ? "bg-blue-300 text-blue-950"
-                    : "bg-light-blue-50 text-gray-600 border-blue-200 hover:bg-blue-200"
-                }`}
-              >
-                <FaFileAlt
-                  className={`${
-                    activeTab === tab.id ? "text-blue-600" : "text-gray-600"
+              <Link key={tab.id} href={tab.href}>
+                <button
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center space-x-2 p-3 rounded-lg border transition group ${
+                    activeTab === tab.id
+                      ? "bg-blue-300 text-blue-950"
+                      : "bg-light-blue-50 text-gray-600 border-blue-200 hover:bg-blue-200"
                   }`}
-                />
-                <span className="flex items-center">
-                  <span>{tab.label}</span>
-                  <span
-                    className={`ml-2 flex items-center justify-center w-6 h-6 text-xs font-bold rounded-full transition group-hover:bg-blue-500 group-hover:text-white ${
-                      activeTab === tab.id
-                        ? "bg-blue-700 text-white"
-                        : "bg-gray-300 text-gray-700"
+                >
+                  <FaFileAlt
+                    className={`${
+                      activeTab === tab.id ? "text-blue-600" : "text-gray-600"
                     }`}
-                  >
-                    {tab.count}
+                  />
+                  <span className="flex items-center">
+                    <span>{tab.label}</span>
+                    <span
+                      className={`ml-2 flex items-center justify-center w-6 h-6 text-xs font-bold rounded-full transition group-hover:bg-blue-500 group-hover:text-white ${
+                        activeTab === tab.id
+                          ? "bg-blue-700 text-white"
+                          : "bg-gray-300 text-gray-700"
+                      }`}
+                    >
+                      {tab.count}
+                    </span>
                   </span>
-                </span>
-              </button>
+                </button>
+              </Link>
             ))}
           </div>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-3 gap-6 mt-10">
             {challenges.map((challenge, index) => (
               <ChallengeCard key={index} challenge={challenge} />
             ))}
@@ -225,7 +238,6 @@ const Challenges = () => {
       </div>
     </div>
   );
-
 };
 
 export default Challenges;
