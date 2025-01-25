@@ -36,7 +36,7 @@ const Sidebar: React.FC = () => {
           />
           {/* Add a toggle button for smaller screens */}
           <button
-            className="text-white text-2xl lg:hidden focus:outline-none"
+            className="text-black text-2xl lg:hidden focus:outline-none"
             onClick={toggleSidebar}
           >
             ☰
