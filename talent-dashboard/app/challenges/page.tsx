@@ -5,7 +5,7 @@ import { FaBell, FaFileAlt, FaSearch } from "react-icons/fa";
 import Image from "next/image";
 
 const Challenges = () => {
-  const [activeTab, setActiveTab] = useState("All Challenges");
+  const [activeTab, setActiveTab] = useState("All Challenge");
 
   const tabs = [
     { id: "All Challenge", label: "All Challenge", count: 0 },
@@ -60,22 +60,24 @@ const Challenges = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center space-x-2 p-3 rounded-lg border transition ${
+                className={`flex items-center space-x-2 p-3 rounded-lg border transition group ${
                   activeTab === tab.id
                     ? "bg-blue-500 text-white border-blue-500"
                     : "bg-light-blue-50 text-gray-600 border-blue-200 hover:bg-blue-200"
                 }`}
               >
                 <FaFileAlt />
-                <span>{tab.label}</span>
-                <span
-                  className={`flex items-center justify-center w-6 h-6 text-xs font-bold rounded-full ${
-                    activeTab === tab.id
-                      ? "bg-blue-700 text-white"
-                      : "bg-gray-300 text-gray-700 group-hover:bg-blue-500 group-hover:text-white"
-                  }`}
-                >
-                  {tab.count}
+                <span className="flex items-center">
+                  <span>{tab.label}</span>
+                  <span
+                    className={`ml-2 flex items-center justify-center w-6 h-6 text-xs font-bold rounded-full transition group-hover:bg-blue-500 group-hover:text-white ${
+                      activeTab === tab.id
+                        ? "bg-blue-700 text-white"
+                        : "bg-gray-300 text-gray-700"
+                    }`}
+                  >
+                    {tab.count}
+                  </span>
                 </span>
               </button>
             ))}
