@@ -20,7 +20,7 @@ const Sidebar: React.FC = () => {
         <ul className="space-y-2">
           <li>
             <Link
-              href="/dashboard"
+              href="/"
               className="flex items-center p-2 hover:bg-white rounded hover:text-blue-500"
             >
               <FaHome className="mr-2" />
@@ -29,7 +29,7 @@ const Sidebar: React.FC = () => {
           </li>
           <li>
             <Link
-              href={URLS.CHALLENGES}
+              href="/challenges"
               className="flex items-center p-2 hover:bg-white rounded hover:text-blue-500"
             >
               <FaFile className="mr-2" />
