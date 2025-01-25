@@ -1,9 +1,15 @@
+"use client";
+import Sidebar from "@/components/Dashboard/Sidebar";
 import React from 'react'
 
-const page = () => {
+const Community = () => {
   return (
-    <div>page</div>
+      <div className="flex h-screen">
+          <div className="fixed h-screen w-[260px]">
+              <Sidebar />
+          </div>
+    </div>
   )
 }
 
-export default page
+export default Community
