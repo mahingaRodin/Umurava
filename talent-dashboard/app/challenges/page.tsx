@@ -229,11 +229,12 @@ const Challenges = () => {
               <ChallengeCard key={index} challenge={challenge} />
             ))}
           </div>
-          {/* <div className="grid grid-cols-3 gap-6">
-            {challenges.map((challenge, index) => (
-              <ChallengeCard key={index} challenge={challenge} />
-            ))}
-          </div> */}
+          <div className="w-[95px] h-9 p-3 bg-white rounded-md flex-col justify-center items-center gap-2 inline-flex">
+    <div className="text-center text-[#98a1b2] text-sm font-normal font-['Inter'] leading-tight">Previous</div>
+</div>
+          <div className="text-center text-white text-sm font-normal font-['Inter'] leading-tight">
+            Next
+          </div>
         </div>
       </div>
     </div>
