@@ -47,7 +47,7 @@ const Sidebar: React.FC = () => {
           <ul className="space-y-2">
             <li>
               <Link
-                href="/"
+                href="/dashboard"
                 className="flex items-center p-2 hover:bg-white rounded hover:text-blue-500"
               >
                 <FaHome className="mr-2" />
