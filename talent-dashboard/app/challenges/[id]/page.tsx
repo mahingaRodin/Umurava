@@ -16,14 +16,14 @@ import Image from "next/image";
 const projectBrief = {
   title: "Project Brief : Payroll and HR Management System",
   description: `A Fintech company that is developing a Digital Financial Platform designed 
-    to manage their workforce in Africa. The partnership with Umurava to 
-    run a skills Challenge for their Design Team. This project covers UI/UX 
-    Payroll Management System for Employers and Employees and other services 
+    for businesses and their workforce in Africa is partnering with Umurava to 
+    run a Skills Challenge for Product Design. The Fintech Company offers 
+    Payroll Management System to Employers and Embedded Financial services 
     and products to Employees and Gig Workers across Africa.`,
 };
 
 const productRequirements = [
-  "UI research to understand Project Requirements",
+  "UX research to understand Project Requirements",
   "Understanding User Needs",
   "Understanding Business Goals",
   "Determine interaction between users",
@@ -42,32 +42,33 @@ const deliverables = [
   "Requirements Catalog and User Interaction Diagram",
   "User Interface Mockups",
   "Payroll and HR System Design Completed",
+  "The Product Designer will provide all documents and deliverables to the client before the review meetings",
 ];
 
 const notes = [
-  "Find Product Requirements Summary and Features Description for below the HERE",
+  "Find Product Requirements Summary and Features Description for below Pay HERE",
 ];
 
 const keyInstructions = [
   {
-    icon: FaEnvelope,
+    icon: "mail",
     title: "talent@umurava.africa",
     subtitle: "Contact Email",
   },
   {
-    icon: "logo",
+    icon: "category",
     title: "Web design",
     subtitle: "Challenge Category",
   },
   {
-    icon: FaCalendar,
+    icon: "calendar",
     title: "7 Days",
     subtitle: "Duration",
   },
   {
-    icon: FaDollarSign,
+    icon: "money",
     title: "$150 - $400",
-    subtitle: "Prize Pool",
+    subtitle: "Money Prize",
   },
 ];
 
@@ -123,8 +124,131 @@ const ChallengeDetails = ({ params }: { params: { id: string } }) => {
           <span className="text-blue-500">Design a Dashboard for Sokofund</span>
         </div>
 
-        {/* Rest of your existing content */}
-        <div className="flex p-8 gap-8">{/* ... existing content ... */}</div>
+        {/* Main Content */}
+        <div className="flex p-8 gap-8">
+          {/* Left Column - Project Details */}
+          <div className="flex-1">
+            {/* Company Logo */}
+            <div className="bg-blue-500 w-full h-[280px] rounded-t-lg flex items-center justify-center">
+              <Image
+                src="/images/umurava.png"
+                alt="Umurava"
+                width={200}
+                height={100}
+                className="object-contain"
+              />
+            </div>
+
+            {/* Project Content - Now in a white card */}
+            <div className="bg-white rounded-b-lg shadow-sm border border-gray-200 p-8">
+              <div className="space-y-6">
+                <h2 className="text-xl font-semibold">{projectBrief.title}</h2>
+                <p className="text-gray-600 leading-relaxed">
+                  {projectBrief.description}
+                </p>
+
+                <div className="space-y-4">
+                  <h3 className="font-semibold">Tasks:</h3>
+
+                  <div>
+                    <h4 className="font-medium mb-2">Product Requirements</h4>
+                    <ul className="space-y-2">
+                      {productRequirements.map((req, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-gray-400">•</span>
+                          <span className="text-gray-600">{req}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-medium mb-2">Product Design:</h4>
+                    <ul className="space-y-2">
+                      {productDesign.map((design, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-gray-400">•</span>
+                          <span className="text-gray-600">{design}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-medium mb-2">Deliverables:</h4>
+                    <ul className="space-y-2">
+                      {deliverables.map((deliverable, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-gray-400">•</span>
+                          <span className="text-gray-600">{deliverable}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-medium mb-2">NOTE:</h4>
+                    <ul className="space-y-2">
+                      {notes.map((note, index) => (
+                        <li key={index} className="flex items-start gap-2">
+                          <span className="text-gray-400">•</span>
+                          <span className="text-gray-600">{note}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Key Instructions */}
+          <div className="w-[300px]">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+              <h3 className="font-semibold mb-4">Key Instructions:</h3>
+              <p className="text-sm text-gray-600 mb-6">
+                You are free to schedule the clarification call with the team
+                via the:
+              </p>
+
+              <div className="space-y-4">
+                {keyInstructions.map((instruction, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <div className="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center">
+                      {instruction.icon === "mail" && (
+                        <FaEnvelope className="text-blue-500" />
+                      )}
+                      {instruction.icon === "category" && (
+                        <Image
+                          src="/images/umurava.png"
+                          alt="Web design"
+                          width={20}
+                          height={20}
+                        />
+                      )}
+                      {instruction.icon === "calendar" && (
+                        <FaCalendar className="text-blue-500" />
+                      )}
+                      {instruction.icon === "money" && (
+                        <FaDollarSign className="text-blue-500" />
+                      )}
+                    </div>
+                    <div>
+                      <p className="font-medium">{instruction.title}</p>
+                      <p className="text-sm text-gray-500">
+                        {instruction.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <button className="w-full bg-blue-500 text-white py-3 rounded-lg mt-6 hover:bg-blue-600 transition">
+                Submit your work
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
