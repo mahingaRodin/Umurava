@@ -28,12 +28,7 @@ const Sidebar: React.FC = () => {
         } lg:left-0`}
       >
         <div className="flex items-center justify-between lg:block">
-          <Image
-            src="/images/umurava.png"
-            alt="Umurava"
-            width={55}
-            height={35}
-          />
+          <Image src="/images/logo.png" alt="Umurava" width={55} height={35} />
           {/* Add a toggle button for smaller screens */}
           <button
             className="text-black text-2xl lg:hidden focus:outline-none"
