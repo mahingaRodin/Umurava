@@ -133,8 +133,8 @@ const ChallengeDetails = ({ params }: { params: { id: string } }) => {
               <Image
                 src="/images/umurava.png"
                 alt="Umurava"
-                width={200}
-                height={100}
+                width={300}
+                height={300}
                 className="object-contain"
               />
             </div>

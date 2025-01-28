@@ -85,10 +85,7 @@ const challenges: Challenge[] = [
 const ChallengeCard: React.FC<ChallengeCardProps> = ({
   challenge: Challenge,
 }) => (
-  <Link
-    href={`/challenges/${Challenge.id}`}
-    className="block"
-  >
+  <Link href={`/challenges/${Challenge.id}`} className="block">
     <div className="bg-white rounded-lg shadow-lg overflow-hidden w-80 border border-gray-200">
       {/* Header Section */}
       <div className="relative">
@@ -96,8 +93,8 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({
           <Image
             src={Challenge.companyLogo}
             alt="Company Logo"
-            width={120}
-            height={70}
+            width={200}
+            height={200}
             className="object-contain"
           />
         </div>
@@ -244,8 +241,10 @@ const Challenges = () => {
             ))}
           </div>
           <div className="w-[95px] h-9 p-3 bg-white rounded-md flex-col justify-center items-center gap-2 inline-flex">
-    <div className="text-center text-[#98a1b2] text-sm font-normal font-['Inter'] leading-tight">Previous</div>
-</div>
+            <div className="text-center text-[#98a1b2] text-sm font-normal font-['Inter'] leading-tight">
+              Previous
+            </div>
+          </div>
           <div className="text-center text-white text-sm font-normal font-['Inter'] leading-tight">
             Next
           </div>
