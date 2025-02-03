@@ -27,7 +27,7 @@ const Sidebar: React.FC = () => {
       setIsMobile(mobileView);
       setSidebarOpen(!mobileView);
     };
-
+//ust wanted to 
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
