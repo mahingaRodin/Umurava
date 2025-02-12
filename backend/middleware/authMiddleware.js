@@ -1,37 +1,50 @@
 const jwt = require('jsonwebtoken');
 const Admin = require('../models/adminModel');
+const User = require('../models/userModel'); // Include User model if you're also handling users
 
 const protect = async (req, res, next) => {
     let token;
 
+    // Check if there's an authorization header
     if (
         req.headers.authorization &&
         req.headers.authorization.startsWith('Bearer')
     ) {
         try {
-            // Get token from header
+            // Get the token from the header
             token = req.headers.authorization.split(' ')[1];
 
-            // Verify token
+            // Verify the token
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-            // Get the admin from the token
-            const admin = await Admin.findById(decoded.id);
-
-            if (!admin) {
-                return res.status(401).json({ message: 'Admin not found' });
+            // Check for admin or user based on role
+            let user;
+            if (decoded.role === 'admin') {
+                // If role is admin, find admin
+                user = await Admin.findById(decoded.id);
+                if (!user) {
+                    return res.status(401).json({ message: 'Admin not found' });
+                }
+            } else {
+                // If role is user, find user (you may want to adjust based on your model)
+                user = await User.findById(decoded.id);
+                if (!user) {
+                    return res.status(401).json({ message: 'User not found' });
+                }
             }
 
-            req.user = admin;
+            // Attach user to the request
+            req.user = user;
             next();
         } catch (err) {
             console.error(err);
-            res.status(401).json({ message: 'Not authorized' });
+            res.status(401).json({ message: 'Not authorized, token is invalid' });
         }
     }
 
+    // If no token is provided
     if (!token) {
-        res.status(401).json({ message: 'No token, authorization denied' });
+        return res.status(401).json({ message: 'No token, authorization denied' });
     }
 };
 
