@@ -85,62 +85,65 @@ const challenges: Challenge[] = [
 const ChallengeCard: React.FC<ChallengeCardProps> = ({
   challenge: Challenge,
 }) => {
-  return <Link href={`/challenges/${Challenge.id}`} className="block">
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden w-80 border border-gray-200">
-      {/* Header Section */}
-      <div className="relative">
-        <div className="bg-blue-500 h-36 flex items-center justify-center">
-          <Image
-            src={Challenge.companyLogo}
-            alt="Company Logo"
-            width={200}
-            height={200}
-            className="object-contain" />
-        </div>
-        <span className="absolute top-3 right-3 bg-green-500 text-white text-sm px-4 py-1 rounded-full shadow">
-          {Challenge.status}
-        </span>
-      </div>
-      {/* Content Section */}
-      <div className="p-5 space-y-3">
-        <h3 className="font-semibold text-base text-gray-800">
-          {Challenge.title}
-        </h3>
-        {/* Skills Section */}
-        <div>
-          <p className="text-sm text-gray-600 mb-2">Skills Needed:</p>
-          <div className="flex flex-row gap-2 flex-wrap">
-            {Challenge.skillsNeeded.map((skill, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 bg-blue-50 text-blue-500 rounded-full text-[10px] truncate"
-              >
-                {skill}
-              </span>
-            ))}
+  return (
+    <Link href={`/challenges/${Challenge.id}`} className="block">
+      <div className="bg-white rounded-lg shadow-lg overflow-hidden w-80 border border-gray-200">
+        {/* Header Section */}
+        <div className="relative">
+          <div className="bg-blue-500 h-36 flex items-center justify-center">
+            <Image
+              src={Challenge.companyLogo}
+              alt="Company Logo"
+              width={200}
+              height={200}
+              className="object-contain"
+            />
           </div>
+          <span className="absolute top-3 right-3 bg-green-500 text-white text-sm px-4 py-1 rounded-full shadow">
+            {Challenge.status}
+          </span>
         </div>
-        {/* Additional Details */}
-        <div>
-          <p className="text-sm text-gray-600">
-            Seniority Level:{" "}
-            <span className="text-gray-400">{Challenge.seniorityLevel}</span>
-          </p>
+        {/* Content Section */}
+        <div className="p-5 space-y-3">
+          <h3 className="font-semibold text-base text-gray-800">
+            {Challenge.title}
+          </h3>
+          {/* Skills Section */}
+          <div>
+            <p className="text-sm text-gray-600 mb-2">Skills Needed:</p>
+            <div className="flex flex-row gap-2 flex-wrap">
+              {Challenge.skillsNeeded.map((skill, index) => (
+                <span
+                  key={index}
+                  className="px-3 py-1 bg-blue-50 text-blue-500 rounded-full text-[10px] truncate"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+          {/* Additional Details */}
+          <div>
+            <p className="text-sm text-gray-600">
+              Seniority Level:{" "}
+              <span className="text-gray-400">{Challenge.seniorityLevel}</span>
+            </p>
+          </div>
+          <div>
+            <p className="text-sm text-gray-600">
+              Timeline: <span>{Challenge.timeline}</span>
+            </p>
+          </div>
+          {/* Divider */}
+          <hr className="w-full border-gray-300 my-4" />
+          {/* Action Button */}
+          <button className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+            View Challenge
+          </button>
         </div>
-        <div>
-          <p className="text-sm text-gray-600">
-            Timeline: <span>{Challenge.timeline}</span>
-          </p>
-        </div>
-        {/* Divider */}
-        <hr className="w-full border-gray-300 my-4" />
-        {/* Action Button */}
-        <button className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
-          View Challenge
-        </button>
       </div>
-    </div>
-  </Link>;
+    </Link>
+  );
 };
 
 const Challenges = () => {
