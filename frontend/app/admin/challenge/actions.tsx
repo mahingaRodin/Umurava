@@ -63,7 +63,7 @@ export async function getChallengeById(id: string) {
   return response.json();
 }
 
-export async function updateChallenge(id: string, formData: any) {
+export async function updateChallenge(id: string, formData: string) {
   const response = await fetch(`/api/challenges/v1/update-challenge/${id}`, {
     method: "PUT",
     headers: {

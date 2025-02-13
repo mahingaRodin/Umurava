@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useState } from "react";
@@ -13,7 +12,7 @@ import { createChallenge } from "../actions";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
 
-export default function newChall() {
+export default function NewChallenge() {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -28,7 +27,7 @@ export default function newChall() {
     try {
       const result = await createChallenge(formData);
 
-      if (result.error) {
+      if ("error" in result) {
         setError(result.error);
         return;
       }
@@ -55,7 +54,7 @@ export default function newChall() {
             Go Back
           </button>
           <span>/</span>
-          <span>Challenges & Hackathons</span>
+          <span>Challenges &amp; Hackathons</span>
           <span>/</span>
           <span className="font-medium text-blue-600 hover:underline">
             Create New Challenge
@@ -69,11 +68,11 @@ export default function newChall() {
         <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-4xl">
           <Card className="p-6">
             <div className="space-y-4">
-              <div>
-                <p className="mb-4 text-sm text-center text-gray-600">
-                  Fill out these details to build your broadcast
-                </p>
+              <p className="mb-4 text-sm text-center text-gray-600">
+                Fill out these details to build your broadcast
+              </p>
 
+              <div>
                 <Label htmlFor="title" className="text-black">
                   Challenge/Hackathon Title
                 </Label>
@@ -146,7 +145,7 @@ export default function newChall() {
                   name="projectDescription"
                   placeholder="Enter text here..."
                   className="min-h-[100px]"
-                  maxLength={150}
+                  maxLength={250}
                   required
                 />
                 <p className="mt-1 text-xs text-black">
@@ -163,6 +162,7 @@ export default function newChall() {
                   name="projectBrief"
                   placeholder="Enter text here..."
                   className="min-h-[100px]"
+                  maxLength={50}
                 />
                 <p className="mt-1 text-xs text-black">
                   Keep this simple of 50 characters
@@ -171,13 +171,14 @@ export default function newChall() {
 
               <div>
                 <Label htmlFor="projectRequirements" className="text-black">
-                  Project Description & Tasks
+                  Project Description &amp; Tasks
                 </Label>
                 <Textarea
                   id="projectRequirements"
                   name="projectRequirements"
                   placeholder="Enter text here..."
                   className="min-h-[100px]"
+                  maxLength={500}
                 />
                 <p className="mt-1 text-xs text-black">
                   Keep this simple of 500 characters
@@ -190,7 +191,6 @@ export default function newChall() {
           <div className="flex gap-4 justify-center mb-4">
             <Button
               variant="outline"
-              asChild
               className="px-4 py-2 text-lg text-blue-500 border-blue-500"
             >
               <Link href="/challenge">Cancel</Link>
@@ -200,10 +200,7 @@ export default function newChall() {
               disabled={isSubmitting}
               className="px-4 py-2 text-lg text-white bg-blue-500 hover:bg-blue-600"
             >
-              <Link href="/challenge/edit">
-                {" "}
-                {isSubmitting ? "Creating..." : "Create Challenge"}{" "}
-              </Link>
+              {isSubmitting ? "Creating..." : "Create Challenge"}
             </Button>
           </div>
         </form>
