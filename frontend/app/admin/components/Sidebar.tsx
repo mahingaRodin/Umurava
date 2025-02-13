@@ -18,17 +18,17 @@ export function Sidebar() {
 
   const routes = [
     {
-      href: "/",
+      href: "/admin",
       label: "Dashboard",
       icon: LayoutDashboard,
     },
     {
-      href: "/challenge",
+      href: "/admin/challenge",
       label: "Challenges & Hackathons",
       icon: Award,
     },
     {
-      href: "/community",
+      href: "/admin/community",
       label: "Community",
       icon: Users,
     },
@@ -57,7 +57,7 @@ export function Sidebar() {
       <Link href="/" className="py-6 px-4 flex items-center text-2xl font-bold">
         <span>
           <Image
-            src="/logo2.png"
+            src="/images/logo.png"
             alt="Umurava logo"
             width={50}
             height={50}

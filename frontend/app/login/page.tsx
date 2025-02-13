@@ -13,39 +13,31 @@ const Login = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setError(""); // Reset the error on every new login attempt
+    setError("");
 
     try {
       const response = await fetch("http://localhost:5000/api/v1/auth/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
 
-      if (!response.ok) {
-        throw new Error(data.message || "Login failed");
-      }
+      if (!response.ok) throw new Error(data.message || "Login failed");
 
-      // Store token in localStorage
       localStorage.setItem("token", data.token);
+      localStorage.setItem("role", data.role);
 
-      // Redirect based on role
       if (data.role === "admin") {
-        router.push("http://localhost:3001"); // Admin redirected to admin dashboard or main page
-      } else if (data.role === "user") {
-        router.push("/dashboard"); // Normal user redirected to the user dashboard
+        router.push("/admin");
       } else {
-        throw new Error("Unknown role"); // If role doesn't match
+        router.push("/dashboard");
       }
     } catch (err: any) {
-      // Handle different error messages and show to the user
-      setError(err.message || "An error occurred. Please try again.");
+      setError(err.message);
     } finally {
-      setLoading(false); // End loading state after attempt
+      setLoading(false);
     }
   };
 

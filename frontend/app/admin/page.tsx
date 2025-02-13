@@ -12,7 +12,7 @@ const Dashboard = () => {
     const role = localStorage.getItem("role");
 
     if (role !== "admin") {
-      router.push("/dashboard"); // Redirect normal users
+      router.push("/dashboard");
     }
   }, []);
 

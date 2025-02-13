@@ -48,7 +48,7 @@ const Home = () => {
         </div>
 
         <Link
-          href="/join"
+          href="/login" // Updated to go to the login page
           className="px-6 py-3 bg-[#041738] text-white text-sm font-semibold rounded-md hover:bg-[#0a2357] transition-colors"
         >
           Join the Program

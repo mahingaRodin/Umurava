@@ -100,7 +100,7 @@ const ChallengeCardA: React.FC<ChallengeCardAProps> = ({ challenge }) => {
       </div>
     </Link>
   );
-};
+};  
 
 const ChallPage = () => {
   return (

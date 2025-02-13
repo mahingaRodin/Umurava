@@ -84,8 +84,8 @@ const challenges: Challenge[] = [
 
 const ChallengeCard: React.FC<ChallengeCardProps> = ({
   challenge: Challenge,
-}) => (
-  <Link href={`/challenges/${Challenge.id}`} className="block">
+}) => {
+  return <Link href={`/challenges/${Challenge.id}`} className="block">
     <div className="bg-white rounded-lg shadow-lg overflow-hidden w-80 border border-gray-200">
       {/* Header Section */}
       <div className="relative">
@@ -95,8 +95,7 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({
             alt="Company Logo"
             width={200}
             height={200}
-            className="object-contain"
-          />
+            className="object-contain" />
         </div>
         <span className="absolute top-3 right-3 bg-green-500 text-white text-sm px-4 py-1 rounded-full shadow">
           {Challenge.status}
@@ -141,8 +140,8 @@ const ChallengeCard: React.FC<ChallengeCardProps> = ({
         </button>
       </div>
     </div>
-  </Link>
-);
+  </Link>;
+};
 
 const Challenges = () => {
   const [activeTab, setActiveTab] = useState("All Challenge");

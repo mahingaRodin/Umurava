@@ -17,7 +17,7 @@ export function ChallengeCard() {
       <div className="relative mb-4 h-32 bg-blue-600 rounded-lg">
         <div className="flex justify-center items-center h-full">
           <Image
-            src="/logo2.png"
+            src="/images/logo.png"
             alt="Umurava logo"
             width={50}
             height={50}
