@@ -122,7 +122,7 @@ const About = () => {
                 Bridging Education and Employment
               </h2>
               <p className="text-white/90">
-                Traditional education doesn't always prepare talents for the
+                Traditional education doesn&apos;t always prepare talents for the
                 demands of the tech and digital economy and we are providing
                 in-demand skills through Skills Challenges.
               </p>

@@ -66,12 +66,6 @@ const Sidebar: React.FC = () => {
     },
   ];
 
-  const handleLogout = () => {
-    logout();
-    // Redirect to login page or home
-    window.location.href = "/";
-  };
-
   const bottomNavItems = [
     {
       icon: <FaCog className="sidebar-icon" />,

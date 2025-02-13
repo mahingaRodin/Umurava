@@ -91,18 +91,15 @@ const Home = () => {
               <div className="w-[275px] h-[443px] relative bg-[#2b71f0] rounded-[32px]  overflow-hidden">
                 <div className="w-[294px] h-[294px] left-[49px] top-[-3.29px] absolute origin-top-left rotate-[55.69deg] bg-white rounded-full" />
                 <div className="w-[342.46px] h-[406.14px] left-[-34.23px] top-[37px] absolute">
-                  <img
+                  <Image
                     className="w-[342.46px] h-[406.14px] left-0 top-0 absolute"
-                    src="https://via.placeholder.com/342x406"
-                  />
-                  <img
+                    src="https://via.placeholder.com/342x406" alt={""}                  />
+                  <Image
                     className="w-[66.12px] h-[21.94px] left-[138.07px] top-[295.74px] absolute origin-top-left rotate-[-1.39deg]"
-                    src="https://via.placeholder.com/66x22"
-                  />
-                  <img
+                    src="https://via.placeholder.com/66x22" alt={""}                  />
+                  <Image
                     className="w-[20.11px] h-[6.64px] left-[216.87px] top-[233.18px] absolute origin-top-left rotate-[-1.39deg]"
-                    src="https://via.placeholder.com/20x7"
-                  />
+                    src="https://via.placeholder.com/20x7" alt={""}                  />
                 </div>
                 <div className="w-[275px] h-[86px] left-0 top-[355px] absolute bg-gradient-to-b from-[#2b70ef] to-[#2b71f0] rounded-[32px]" />
               </div>
@@ -110,29 +107,28 @@ const Home = () => {
             {/* <div className="w-[201px] h-[53.95px] px-[10.58px] pt-[10.58px] pb-[11.69px] left-0 top-[433px] absolute bg-white rounded-[52.89px] justify-center items-center inline-flex overflow-hidden">
               <div className="grow shrink basis-0 self-stretch justify-start items-center gap-[14.35px] inline-flex">
                 <div className="justify-start items-center flex">
-                  <img
+                  <Image
                     className="w-[31.68px] h-[31.68px] rounded-full border border-white"
                     src="https://via.placeholder.com/32x32"
                   />
-                  <img
+                  <Image
                     className="w-[31.68px] h-[31.68px] rounded-full border border-white"
                     src="https://via.placeholder.com/32x32"
                   />
-                  <img
+                  <Image
                     className="w-[31.68px] h-[31.68px] rounded-full border border-white"
                     src="https://via.placeholder.com/32x32"
                   />
-                  <img
+                  <Image
                     className="w-[31.68px] h-[31.68px] rounded-full border border-white"
                     src="https://via.placeholder.com/32x32"
                   />
                 </div>
               </div>
             </div> */}
-            <img
+            <Image
               className="w-[120px] h-[120px] left-[302px] top-0 absolute"
-              src="https://via.placeholder.com/120x120"
-            />
+              src="https://via.placeholder.com/120x120" alt={""}            />
           </div>
         </div>
       </main>

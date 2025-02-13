@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+type ApiError = {
+  message: string;
+};
+
 const Login = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -34,8 +38,14 @@ const Login = () => {
       } else {
         router.push("/dashboard");
       }
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      if (err instanceof Error) {
+        setError(err.message);
+      } else if (typeof err === "object" && err !== null && "message" in err) {
+        setError((err as ApiError).message);
+      } else {
+        setError("An unknown error occurred");
+      }
     } finally {
       setLoading(false);
     }
@@ -45,14 +55,17 @@ const Login = () => {
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="bg-white p-6 rounded-lg shadow-md w-96">
         <h2 className="text-2xl font-bold mb-4 text-center">Login</h2>
-        {error && <p className="text-red-500 text-sm mb-3">{error}</p>}{" "}
-        {/* Error message display */}
+        {error && <p className="text-red-500 text-sm mb-3">{error}</p>}
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
               Email
             </label>
             <input
+              id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -62,10 +75,14 @@ const Login = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
               Password
             </label>
             <input
+              id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -77,13 +94,13 @@ const Login = () => {
           <button
             type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
-            disabled={loading} // Disable button when loading
+            disabled={loading}
           >
-            {loading ? "Logging in..." : "Login"} {/* Toggle button text */}
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
         <p className="text-sm mt-3 text-center">
-          Don't have an account?{" "}
+          Don&apos;t have an account?{" "}
           <a href="/register" className="text-blue-500">
             Sign up
           </a>
